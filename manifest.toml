@@ -5,7 +5,7 @@ packaging_format = 2
 id = "opencast"
 name = "Example app"
 description.en = "Solution for automated video capture and distribution at scale"
-description.fr = "Expliquez en *quelques* (10~15) mots l'utilité de l'app ou ce qu'elle fait (l'objectif est de donner une idée grossière pour des utilisateurs qui naviguent dans un catalogue de 100+ apps)"
+description.fr = "Solution for automated video capture and distribution at scale"
 
 version = "15.0~ynh1"
 
@@ -35,28 +35,9 @@ ram.runtime = "50M"
     [install.domain]
     type = "domain"
 
-    [install.path]
-    type = "path"
-    default = "/example"
-
     [install.init_main_permission]
     type = "group"
     default = "visitors"
-
-    [install.language]
-    ask.en = "Choose the application language"
-    ask.fr = "Choisissez la langue de l'application"
-    type = "select"
-    choices = ["fr", "en"]
-    default = "fr"
-
-    [install.admin]
-    type = "user"
-
-    [install.password]
-    help.en = "Use the help field to add an information for the admin about this question."
-    help.fr = "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
-    type = "password"
 
 [resources]
 
@@ -66,8 +47,6 @@ ram.runtime = "50M"
 
         url = "https://github.com/foo/bar/archive/refs/tags/v1.2.3.tar.gz"
         sha256 = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
-
-        # autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
 
@@ -81,10 +60,12 @@ ram.runtime = "50M"
     [resources.ports]
 
     [resources.apt]
-
-    [resources.apt]
     packages = "postgresql"
+
+    extras.yarn.repo = "deb https://pkg.opencast.org/debian 15.x stable"
+    extras.yarn.key = "https://pkg.opencast.org/gpgkeys/opencast-deb.key"
+    extras.yarn.packages = "opencast-15-allinone opensearch"
 
     [resources.database]
     type = "postgresql"
-    
+   
