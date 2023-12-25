@@ -9,8 +9,8 @@ After=remote-fs.target
 [Service]
 User=__APP__
 Group=__APP__
-ExecStart=/opt/opencast/bin/start-opencast server
-ExecStop=/opt/opencast/bin/stop-opencast
+ExecStart=/user/share/opencast/bin/start-opencast server
+ExecStop=/user/share/opencast/bin/stop-opencast
 Restart=always
 
 # Specifies the maximum file descriptor number that can be opened by this process
