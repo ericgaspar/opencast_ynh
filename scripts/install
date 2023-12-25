@@ -14,10 +14,8 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
 
-# Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_add_nginx_config
 
-# Create a dedicated systemd config
 ynh_add_systemd_config
 
 yunohost service add $app --description="Automated video capture and distribution" --log="/var/log/$app/$app.log"
@@ -27,12 +25,12 @@ yunohost service add $app --description="Automated video capture and distributio
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-#ynh_script_progression --message="Adding a configuration file..." --weight=1
+ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-#ynh_add_config --template="custom.properties" --destination="/opt/opencast/etc/custom.properties"
+ynh_add_config --template="custom.properties" --destination="/etc/opencast/custom.properties"
 
-#chmod 400 "/opt/opencast/etc/custom.properties"
-#chown $app:$app "/opt/opencast/etc/custom.properties"
+chmod 400 "/etc/opencast/custom.properties"
+chown $app:$app "/etc/opencast/custom.properties"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -42,7 +40,7 @@ yunohost service add $app --description="Automated video capture and distributio
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
