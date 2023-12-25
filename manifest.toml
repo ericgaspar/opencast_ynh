@@ -3,7 +3,7 @@
 packaging_format = 2
 
 id = "opencast"
-name = "Example app"
+name = "Opencast"
 description.en = "Solution for automated video capture and distribution at scale"
 description.fr = "Solution for automated video capture and distribution at scale"
 
