@@ -41,13 +41,6 @@ ram.runtime = "50M"
 
 [resources]
 
-    [resources.sources]
-
-        [resources.sources.main]
-
-        url = "https://github.com/foo/bar/archive/refs/tags/v1.2.3.tar.gz"
-        sha256 = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
-
     [resources.system_user]
 
     [resources.install_dir]
