@@ -5,7 +5,7 @@ packaging_format = 2
 id = "opencast"
 name = "Opencast"
 description.en = "Solution for automated video capture and distribution at scale"
-description.fr = "Solution for automated video capture and distribution at scale"
+description.fr = "Solution pour la capture et la distribution vidéo automatisées à grande échelle"
 
 version = "15.0~ynh1"
 
