@@ -27,12 +27,12 @@ yunohost service add $app --description="Automated video capture and distributio
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=1
+#ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="custom.properties" --destination="/opt/opencast/etc/custom.properties"
+#ynh_add_config --template="custom.properties" --destination="/opt/opencast/etc/custom.properties"
 
-chmod 400 "/opt/opencast/etc/custom.properties"
-chown $app:$app "/opt/opencast/etc/custom.properties"
+#chmod 400 "/opt/opencast/etc/custom.properties"
+#chown $app:$app "/opt/opencast/etc/custom.properties"
 
 #=================================================
 # GENERIC FINALIZATION
