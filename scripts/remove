@@ -26,6 +26,15 @@ ynh_remove_systemd_config
 
 ynh_remove_nginx_config
 
+# Remove logs
+ynh_secure_remove --file="/var/log/$app"
+
+# Remove local db, search indexes and working files
+ynh_secure_remove --file="/var/lib/opencast"
+
+# Remove configuration files
+ynh_secure_remove --file="/etc/opencast"
+
 #=================================================
 # END OF SCRIPT
 #=================================================
