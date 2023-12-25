@@ -1,15 +1,22 @@
 [Unit]
-Description=Small description of the service
+Description=Opencast
+Documentation=https://docs.opencast.org
+
+After=local-fs.target
 After=network.target
+After=remote-fs.target
 
 [Service]
-Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__INSTALL_DIR__/script
-StandardOutput=append:/var/log/__APP__/__APP__.log
-StandardError=inherit
+ExecStart=/opt/opencast/bin/start-opencast server
+ExecStop=/opt/opencast/bin/stop-opencast
+Restart=always
+
+# Specifies the maximum file descriptor number that can be opened by this process
+# Opencast (especially larger workers) may be greedy and it makes sense to increase this number
+LimitNOFILE=65536
+
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these

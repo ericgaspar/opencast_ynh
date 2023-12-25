@@ -18,7 +18,7 @@ ynh_script_progression --message="Adding system configurations related to $app..
 ynh_add_nginx_config
 
 # Create a dedicated systemd config
-#ynh_add_systemd_config
+ynh_add_systemd_config
 
 yunohost service add $app --description="Automated video capture and distribution" --log="/var/log/$app/$app.log"
 
@@ -42,7 +42,7 @@ yunohost service add $app --description="Automated video capture and distributio
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-#ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # END OF SCRIPT
